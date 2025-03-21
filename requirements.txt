@@ -10,4 +10,5 @@ shap
 
 # API and deployment
 flask
+flask-limiter
 
