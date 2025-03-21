@@ -1,0 +1,13 @@
+# Data manipulation and visualization
+numpy
+pandas
+matplotlib
+seaborn
+
+# Machine learning libraries
+scikit-learn
+shap
+
+# API and deployment
+flask
+
