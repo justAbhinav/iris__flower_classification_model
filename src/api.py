@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import numpy as np
 import pandas as pd
 import pickle
@@ -12,6 +12,11 @@ with open(model_filename, 'rb') as file:
 
 model = saved_objects['model']
 scaler = saved_objects['scaler']
+
+@app.route('/')
+def home():
+    # Render the homepage with the prediction form
+    return render_template('index.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Iris Flower Species Prediction Tool">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/ico" href="/static/favicon.ico">
+    
+    <title>Iris Flower Prediction | AI Species Classifier</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="/static/iris-logo.png" alt="Iris Flower Logo">
+            <h1>Iris Flower Prediction</h1>
+            <p>Enter the measurements below to predict the iris flower species</p>
+        </header>
+
+        <main class="card">
+            <form id="predictionForm">
+                <div class="form-group">
+                    <label for="sepalLength">Sepal Length (cm)</label>
+                    <input type="number" id="sepalLength" name="sepal length (cm)" step="0.1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="sepalWidth">Sepal Width (cm)</label>
+                    <input type="number" id="sepalWidth" name="sepal width (cm)" step="0.1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="petalLength">Petal Length (cm)</label>
+                    <input type="number" id="petalLength" name="petal length (cm)" step="0.1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="petalWidth">Petal Width (cm)</label>
+                    <input type="number" id="petalWidth" name="petal width (cm)" step="0.1" required>
+                </div>
+
+                <button type="submit" class="submit-btn">Predict Species</button>
+            </form>
+
+            <div class="result-section">
+                <h2>Predicted Species</h2>
+                <p id="result">-</p>
+            </div>
+        </main>
+
+        <section class="iris-images">
+            <div class="iris-card">
+                <div class="image-container">
+                    <img src="/static/setosa.jpg" alt="Iris Setosa">
+                </div>
+                <p class="species-name">Iris Setosa</p>
+                <p class="species-description">Known for its distinctive bristly sepals and small petals</p>
+            </div>
+            <div class="iris-card">
+                <div class="image-container">
+                    <img src="/static/versicolor.jpg" alt="Iris Versicolor">
+                </div>
+                <p class="species-name">Iris Versicolor</p>
+                <p class="species-description">Features beautiful violet-blue petals with intricate patterns</p>
+            </div>
+            <div class="iris-card">
+                <div class="image-container">
+                    <img src="/static/virginica.jpg" alt="Iris Virginica">
+                </div>
+                <p class="species-name">Iris Virginica</p>
+                <p class="species-description">Largest of the three, with striking purple-blue flowers</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.getElementById('predictionForm').addEventListener('submit', function(e){
+            e.preventDefault();  // Prevent the default form submission
+            const formData = new FormData(e.target);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = parseFloat(value);
+            });
+            
+            // Send an AJAX request to the /predict endpoint
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                // Display the predicted species
+                document.getElementById('result').textContent = result.predicted_species;
+            })
+            .catch(error => {
+                document.getElementById('result').textContent = 'Error: ' + error;
+            });
+        });
+    </script>
+</body>
+</html>

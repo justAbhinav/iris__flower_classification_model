@@ -11,7 +11,8 @@
 - [Usage](#usage)
     - [Training and Evaluation](#training-and-evaluation)
     - [Testing](#testing)
-    - [Deployment](#deployment)
+    - [Web Interface](#web-interface)
+    - [API Deployment](#api-deployment)
 - [API Example](#api-example)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
@@ -39,6 +40,8 @@ Iris-Classification/
 │   └── Iris_Testing.ipynb   # Notebook for testing the saved model
 ├── src/
 │   ├── api.py             # Flask API for model deployment
+│   ├── static/           # Static files for web interface (CSS, JS, images)
+│   └── templates/        # HTML templates for web interface
 ├── requirements.txt       # List of required packages
 ├── README.md              # Project overview and instructions
 ```
@@ -84,7 +87,20 @@ Iris-Classification/
 1. Open the `notebooks/Iris_Testing.ipynb` notebook.
 2. This notebook loads the saved model and scaler, runs predictions on the test data, and evaluates performance using accuracy, confusion matrices, and classification reports.
 
-### Deployment
+### Web Interface
+1. The project includes a user-friendly web interface for making predictions.
+2. To run the web interface locally:
+     ```bash
+     python src/api.py
+     ```
+3. Open your web browser and navigate to `http://127.0.0.1:5000`
+4. The web interface provides:
+   - An intuitive form to input Iris flower measurements
+   - Real-time predictions
+   - Visual feedback and results display
+   - Responsive design for all devices
+
+### API Deployment
 1. The deployment code is located in the `src/api.py` file.
 2. To run the API locally:
      ```bash
