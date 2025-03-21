@@ -7,6 +7,7 @@
 
 - [Overview](#overview)
 - [Features](#features)
+- [Live Demo](#live-demo)
 - [Project Structure](#project-structure)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -35,6 +36,13 @@ This project demonstrates an end-to-end machine learning pipeline for classifyin
 - **Hyperparameter Tuning:** GridSearchCV and RandomizedSearchCV for optimal model parameters.
 - **Model Interpretability:** SHAP-based visualizations to explain feature contributions.
 - **RESTful API Deployment:** Flask-based API to serve predictions.
+
+## Live Demo
+
+A deployed live version of the project is available at the following location:  
+[https://iris-classification-zhz5.onrender.com/](https://iris-classification-zhz5.onrender.com/)
+
+You can use this link to interact with the web interface and test the model predictions in real-time.
 
 ## Project Structure
 
@@ -153,10 +161,3 @@ This project is licensed under the MIT License.
 - [Flask Documentation](https://flask.palletsprojects.com/)
 - [SHAP Documentation](https://shap.readthedocs.io/en/latest/)
 - Special thanks to the contributors and community that have inspired this project.
-
-## Live Demo
-
-A deployed live version of the project is available at the following location:  
-[https://iris-classification-zhz5.onrender.com/](https://iris-classification-zhz5.onrender.com/)
-
-You can use this link to interact with the web interface and test the model predictions in real-time.
