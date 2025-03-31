@@ -40,7 +40,7 @@ This project demonstrates an end-to-end machine learning pipeline for classifyin
 ## Live Demo
 
 A deployed live version of the project is available at the following location:  
-[https://iris-classification-zhz5.onrender.com/](https://iris-classification-zhz5.onrender.com/)
+[The deployment was removed](https://github.com/justAbhinav/iris__flower_classification_model/)
 
 You can use this link to interact with the web interface and test the model predictions in real-time.
 
